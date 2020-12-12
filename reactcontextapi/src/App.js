@@ -8,7 +8,9 @@ const Agents = ()=>{
 }
 
 const AgentOne = () =>{
-  return <AgentTwo/>
+  return (
+    <AgentTwo/>
+  )
 }
 
 const AgentTwo = () =>{
@@ -23,6 +25,9 @@ const AgentBond = () =>{
           <>
             <h3>Agent Information</h3>
             <p>Mission Name: {context.data.mname}</p>
+            <h2>Mission Status: {context.data.accept}</h2>
+            <button onClick={context.isMissionAccepted}>Choose To Accept</button>
+
           </>
         )
       }
@@ -37,10 +42,9 @@ const App = ()=> {
       <h1>Context API</h1>
       <Provider>
         <Agents/>
-
       </Provider>
     </div>
-  );
+  ); 
 }
 
 export default App;
