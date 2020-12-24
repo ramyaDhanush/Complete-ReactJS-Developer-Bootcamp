@@ -1,37 +1,63 @@
-import React from 'react';
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, NavbarText } from "reactstrap";
+import React, { useState, useContext } from "react";
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  NavbarText
+} from "reactstrap";
 
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { UserContext } from "../context/UserContext";
 
-
 const Header = () => {
-  return(
+  const context = useContext(UserContext);
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggle = () => setIsOpen(!isOpen);
+
+  return (
     <Navbar color="warning" light expand="md">
       <NavbarBrand>
         <Link to="/" className="text-dark">
-          R - Github User Search
+          LCO gitfire app
         </Link>
       </NavbarBrand>
-      <NavbarToggler>
-
-      </NavbarToggler>
-      <Collapse navbar>
+      <NavbarText className="text-dark">
+        {context.user?.email ? context.user.email : ""}
+      </NavbarText>
+      <NavbarToggler onClick={toggle} />
+      <Collapse isOpen={isOpen} navbar>
         <Nav className="ml-auto" navbar>
-          <NavItem>
-            <NavLink className="text-dark">SignUp</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink className="text-dark">SignIn</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink className="text-dark">LogOut</NavLink>
-          </NavItem>
+          {context.user ? (
+            <NavItem>
+              <NavLink tag={Link} to="/" className="text-dark">
+                Logout
+              </NavLink>
+            </NavItem>
+          ) : (
+            <>
+              <NavItem>
+                <NavLink tag={Link} to="/signup" className="text-dark">
+                  Signup
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink tag={Link} to="/signin" className="text-dark">
+                  Signin
+                </NavLink>
+              </NavItem>
+            </>
+          )}
         </Nav>
       </Collapse>
     </Navbar>
-  )
-}
+  );
+};
 
 export default Header;

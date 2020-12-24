@@ -1,61 +1,10 @@
-import React,{useState, useContext} from 'react'
-import { 
-  Container,
-  Row,
-  Col,
-  FormGroup,
-  Form,
-  Button,
-  Label,
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
-  Input
- } from "reactstrap";
-
-import firebase from "firebase/app";
-import {UserContext} from '../context/UserContext'
-import { Redirect } from "react-router-dom";
-import {toast} from "react-toastify";
-
-export const SignUp = () => {
-  const context = useContext(UserContext);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState('');
-
-  const handleSignUp = () =>{
-    firebase
-      .auth().createUserWithEmailAndPassword(email, password)
-      .then(
-        res => {
-          console.log(res);
-          context.setUser({email:res.user.email, uid:res.user.uid})
-        }
-      )
-      .catch(err => {
-        console.log(err);
-        toast(err.message, {
-          type:'error'
-        })
-      })
-  }
-
-  const handleFormSubmit = e =>{
-    e.preventDefault();
-    handleSignUp();
-  }
-
-  if(context.user?.uid){
-    return <Redirect to="/"/>
-  }
-  return (
+return (
 		<Container className='text-center'>
 			<Row>
 				<Col lg={6} className='offset-lg-3 mt-5'>
 					<Card>
 						<Form onSubmit={handleFormSubmit}>
-							<CardHeader className=''>SignUp here</CardHeader>
+							<CardHeader className=''>SignIn here</CardHeader>
 							<CardBody>
 								<FormGroup row>
 									<Label for='email' sm={3}>
@@ -99,5 +48,3 @@ export const SignUp = () => {
 			</Row>
 		</Container>
 	);
-}
-
