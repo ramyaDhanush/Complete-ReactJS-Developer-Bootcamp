@@ -79,8 +79,8 @@ const App = () => {
 
   return (
     <Router>
-      {/* FIXME: Provider is not configured */}
-      <ContactContext.Provider>
+      {/* DONE: Provider is not configured */}
+      <ContactContext.Provider value ={{state, dispatch}}>
         <ToastContainer />
         <Header />
         <Container>
