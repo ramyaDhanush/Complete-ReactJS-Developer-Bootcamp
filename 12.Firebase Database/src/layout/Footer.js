@@ -1,4 +1,4 @@
-//TODO: Export the Footer
+//DONE: Export the Footer
 import React from "react";
 
 const Footer = () => {
@@ -8,3 +8,5 @@ const Footer = () => {
     </footer>
   );
 };
+
+export default Footer;
