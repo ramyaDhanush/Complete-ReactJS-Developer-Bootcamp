@@ -31,7 +31,7 @@ export const SignUp = () => {
         res => {
           console.log(res);
           context.setUser({email:res.user.email, uid:res.user.uid})
-        }
+        } 
       )
       .catch(err => {
         console.log(err);
@@ -55,7 +55,7 @@ export const SignUp = () => {
 				<Col lg={6} className='offset-lg-3 mt-5'>
 					<Card>
 						<Form onSubmit={handleFormSubmit}>
-							<CardHeader className=''>SignUp here</CardHeader>
+							<CardHeader className=''>SignUp Here</CardHeader>
 							<CardBody>
 								<FormGroup row>
 									<Label for='email' sm={3}>
@@ -90,7 +90,7 @@ export const SignUp = () => {
 							</CardBody>
 							<CardFooter>
 								<Button type='submit' block color='primary'>
-									Sign In
+									Sign Up
 								</Button>
 							</CardFooter>
 						</Form>
