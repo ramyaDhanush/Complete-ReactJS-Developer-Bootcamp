@@ -51,12 +51,30 @@ const App = () => {
 
   // will get contacts from firebase and set it on state contacts array
   const getContacts = async () => {
-    // TODO: load existing data
+    // DONE: load existing data
+    dispatch({
+      type: SET_LOADING,
+      payload: true
+    })
+
+    const contactRef = await firebase.database().ref('/contacts')
+    contactRef.on('value', snapshot =>{
+      dispatch({
+        type: SET_CONTACT,
+        payload: snapshot.val(),
+      });
+      dispatch({
+        type: SET_LOADING,
+        payload: false,
+      });
+    })
+
   };
 
   // getting contact  when component did mount
   useEffect(() => {
-    //FIXME: call methods if needed
+    //DONE: call methods if needed
+    getContacts();
   }, []);
 
   return (
