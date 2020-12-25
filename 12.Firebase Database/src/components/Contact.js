@@ -45,7 +45,21 @@ const Contact = ({ contact, contactKey }) => {
 
   // update the star/important contact ,ie, star it or unstar the single contact
   const updateImpContact = () => {
-    //TODO: update (star) contact, use contactKey
+    //DONE: update (star) contact, use contactKey
+    firebase.database()
+    .ref(`/contacts/${contactKey}`)
+    .update({
+      star:!contact.star
+    })
+    .then(()=>{
+      toast("Contact is Updated",{
+        type:"success"
+      })
+    })
+    .catch(err => {
+      console.error(err);
+      toast("Error : On Updating Important contact", {type:"error"});
+    })
   };
 
   // when the update icon/ pen ion is clicked
