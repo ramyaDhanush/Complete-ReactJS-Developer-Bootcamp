@@ -41,7 +41,7 @@ const Contacts = () => {
   return (
     <Container className="mt-4">
       {/* DONE: Loop through FIREBASE objects  */}
-      {contacts.length === 0 && !isloading 
+      {contacts.length === 0 && !isLoading 
       ? (<div className="Center text-large text-primary">No Contacts in Firebase</div>)
       : (
         <ListGroup>
