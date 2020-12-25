@@ -45,7 +45,7 @@ const Contacts = () => {
       ? (<div className="Center text-large text-primary">No Contacts in Firebase</div>)
       : (
         <ListGroup>
-          {Object.enteries(contacts).map(([key, value])=>(
+          {Object.entries(contacts).map(([key, value])=>(
             <ListGroupItem key={key}>
               <Contact contact={value} contactKey={key}/>
             </ListGroupItem>

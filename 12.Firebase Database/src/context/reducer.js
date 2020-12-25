@@ -9,7 +9,7 @@ import {
 
 //TODO: use switch case
 export default (state, action) => {
-  switch(action){
+  switch(action.type){
     case SET_CONTACT:
       return action.payload == null 
       ? { ...state, contacts:[] } 
@@ -20,7 +20,7 @@ export default (state, action) => {
     case CONTACT_TO_UPDATE:
       return {...state, 
               contactToUpdate: action.payload,
-              contactToUpdateKep: action.key}
+              contactToUpdateKey: action.key}
     case SET_SINGLE_CONTACT:
       return {...state,
               contact: action.payload,
