@@ -50,10 +50,13 @@ const Contact = ({ contact, contactKey }) => {
     .ref(`/contacts/${contactKey}`)
     .update({
       star:!contact.star
-    })
+    }, err => {
+      console.log(err);
+    }
+    )
     .then(()=>{
-      toast("Contact is Updated",{
-        type:"success"
+      toast("Contact Updated",{
+        type:"info"
       })
     })
     .catch(err => {
