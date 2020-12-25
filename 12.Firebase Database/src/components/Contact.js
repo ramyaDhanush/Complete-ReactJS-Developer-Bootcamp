@@ -7,24 +7,40 @@ import { Row, Col } from "reactstrap";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import { MdDelete, MdEdit } from "react-icons/md";
 
-//TODO: add firebase
+//DONE: add firebase
+import firebase from 'firebase/app';
 
 // context stuffs
-//TODO: import context and action: update and single_contact
+//DONE: import context and action: update and single_contact
+import { ContactContext } from '../context/Context';
+import { CONTACT_TO_UPDATE, SET_SINGLE_CONTACT} from '../context/action.types'
 
 import { useHistory } from "react-router-dom";
 
 import { toast } from "react-toastify";
 
 const Contact = ({ contact, contactKey }) => {
-  //TODO: destructuring dispatch from the context
-
+  //DONE: destructuring dispatch from the context
+  const {dispatch} = useContext(ContactContext);
   // history hooks to get history
   const history = useHistory();
 
   // to delete the contact when delete contact is clicked
   const deleteContact = () => {
-    //TODO: create this method from firebase
+    //DONE: create this method from firebase
+    firebase.database()
+    .ref(`/contacts/${contactKey}`)
+    .remove()
+    .then(()=>{
+      toast("Contact deleted",{
+        type:"success"
+      })
+    })
+    .catch(err => {
+      console.error(err);
+      toast("Error : On remove contact", {type:"error"});
+    })
+    
   };
 
   // update the star/important contact ,ie, star it or unstar the single contact
