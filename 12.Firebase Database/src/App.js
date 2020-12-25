@@ -14,7 +14,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 // firebase stuffs
-//TODO: import firebase config and firebase database
+//DONE: import firebase config and firebase database
+import {firebaseConfig} from './utils/config';
+import firebase from 'firebase/app';
+import "firebase/database"
+import "firebase/storage"
 
 // components
 import AddContact from "./pages/AddContact";
