@@ -65,8 +65,12 @@ const Contact = ({ contact, contactKey }) => {
   // when the update icon/ pen ion is clicked
   const updateContact = () => {
     // dispatching one action to update contact
-    //TODO: use dispatch to update
-
+    //DONE: use dispatch to update
+    dispatch({
+      type: CONTACT_TO_UPDATE,
+      payload: contact,
+      key: contactKey
+    })
     // and pushing to the add contact screen
     history.push("/contact/add");
   };
