@@ -34,7 +34,8 @@ import reducer from './context/reducer'
 import {ContactContext} from './context/Context'
 import { SET_CONTACT, SET_LOADING } from "./context/action.types";
 //initlizeing firebase app with the firebase config which are in ./utils/firebaseConfig
-//TODO: initialize FIREBASE
+//DONE: initialize FIREBASE
+firebase.initializeApp(firebaseConfig);
 
 // first state to provide in react reducer
 const initialState = {
