@@ -1,5 +1,6 @@
 # Complete-ReactJS-Developer-Bootcamp
-A repo to hold course work
+
+A repo to hold my course work
 
 1. [Convert Normal Website to React](https://github.com/ramyaDhanush/Complete-ReactJS-Developer-Bootcamp/tree/main/1.%20Convert%20normal%20website%20to%20React) 
 2. [Startbootstrap-freelancer-gh-pages](https://github.com/ramyaDhanush/Complete-ReactJS-Developer-Bootcamp/tree/main/2.%20Startbootstrap-freelancer-gh-pages)  
@@ -14,3 +15,55 @@ A repo to hold course work
 11. [Firebase to list Github Users](https://github.com/ramyaDhanush/Complete-ReactJS-Developer-Bootcamp/tree/main/11.%20firebase-with-github-using-react)
 12. [Firebase Real Time Database](https://github.com/ramyaDhanush/Complete-ReactJS-Developer-Bootcamp/tree/main/12.%20Firebase%20Database)
 13. [Bonus : Redux for Todolist](https://github.com/ramyaDhanush/Complete-ReactJS-Developer-Bootcamp/tree/main/13.%20Redux%20Todo)
+
+
+### Through out this course, I explored more about
+
+* Functional Components 
+* Context API
+* React Hooks (useState, useEffect, useReducer)
+* API communication
+* Routing in React 
+* Firebase Integration
+* Redux
+
+#### Projects
+
+* Convert HTML/CSS/JS -> React application
+* Counter App
+* Tic Tac Toe 
+* Theme Switcher
+* Shopping Cart
+* Github with Firebase
+* Todolist - Redux
+
+#### Packages**
+
+* bootstrap
+* reactstrap
+* react-icons
+* react-toastify
+* uuid
+* axios
+* react-router-dom
+* firebase b
+* browser-image-resizer
+
+##### Bootstrap
+
+`import "bootstrap/dist/css/bootstrap.min.css";`
+
+##### React-toastify
+
+`import "react-toastify/dist/ReactToastify.css";`
+
+### Misc
+
+While doing [Shopping Cart](https://github.com/ramyaDhanush/Complete-ReactJS-Developer-Bootcamp/tree/main/10.%20Shopping-cart), we need a JSON server link to make API calls. I preferred `https://jsonkeeper.com/` to make API calls.
+
+While making api calls, **CORS** may occur to avoid that prefix the api url with below 
+  `https://cors-anywhere.herokuapp.com/`
+
+
+Example: 
+`https://cors-anywhere.herokuapp.com/https://jsonkeeper.com/b/1NZ4`
